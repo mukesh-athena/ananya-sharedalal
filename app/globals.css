@@ -1,0 +1,152 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --turmeric: #C97A1D;
+  --terracotta: #A44F2F;
+  --offwhite: #F9F6F1;
+  --parchment: #F5EDD6;
+  --inkbrown: #1E1208;
+  --sage: #7A8C6E;
+  --stone: #8A8075;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--offwhite);
+  color: var(--inkbrown);
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.2;
+  color: var(--inkbrown);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Scroll animation utility */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Divider */
+.divider {
+  width: 48px;
+  height: 2px;
+  background-color: var(--turmeric);
+  margin: 1.5rem 0;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE RULES
+   ========================================================= */
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  /* Hero typography \u2014 reduce massive text */
+  h1 {
+    font-size: clamp(2.5rem, 11vw, 4rem) !important;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+  }
+  h3 {
+    font-size: clamp(1.3rem, 5vw, 1.7rem) !important;
+  }
+
+  /* Force any wide grid to single column */
+  main section [style*="grid-template-columns"],
+  main section [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce hero section padding */
+  main section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Footer grid stacks */
+  footer [style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  footer {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+/* Phone breakpoint */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* Even smaller heroes */
+  h1 {
+    font-size: clamp(2rem, 12vw, 3.2rem) !important;
+  }
+
+  /* Tighter section padding */
+  main section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* Hide images that don't have viable mobile layouts \u2014 none right now, but reserved */
+
+/* Force all containers to respect viewport width */
+.divider,
+section > div,
+footer > div {
+  max-width: 100%;
+}
+
+/* Specifically loosen max-widths inside narrow viewports */
+@media (max-width: 768px) {
+  [style*="max-width"]:not(img):not(picture) {
+    max-width: 100% !important;
+  }
+}
+
+/* Homepage hero \u2014 center content vertically on mobile, not bottom-aligned */
+@media (max-width: 768px) {
+  main > section:first-child[style*="align-items: flex-end"],
+  main > section:first-child[style*="alignItems"] {
+    align-items: center !important;
+    min-height: auto !important;
+    padding-top: 7rem !important;
+    padding-bottom: 4rem !important;
+  }
+}
