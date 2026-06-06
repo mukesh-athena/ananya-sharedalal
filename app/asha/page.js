@@ -52,40 +52,32 @@ export default function AshaPage() {
     textAlign: 'center',
   }
 
-  const policyCardColors = [
-    { bg: 'var(--inkbrown)', text: 'var(--parchment)', accent: 'var(--turmeric)' },
-    { bg: 'var(--parchment)', text: 'var(--inkbrown)', accent: 'var(--terracotta)' },
-    { bg: '#2d1f0e', text: 'var(--parchment)', accent: 'var(--turmeric)' },
-    { bg: 'var(--offwhite)', text: 'var(--inkbrown)', accent: 'var(--terracotta)' },
-    { bg: 'var(--turmeric)', text: 'var(--inkbrown)', accent: 'var(--inkbrown)' },
-  ]
-
   const references = [
     { text: 'More, V. (2025, June 25). Annamayya ASHA Worker Salary 2025. Career Meto.', url: 'https://careermeto.com/en/annamayya-asha-worker-salary-2025/' },
     { text: 'Ministry of Health & Family Welfare-Government of India. (n.d.). About Accredited Social Health Activist (ASHA) :: National Health Mission.', url: 'https://nhm.gov.in/index1.php?lang=1&level=1&sublinkid=150&lid=226' },
     { text: 'The Hindu Bureau. (2026, February 23). ASHA workers stage protest demanding fixed ₹18,000 salary and fulfilment of promises. The Hindu.', url: 'https://www.thehindu.com/news/cities/Hyderabad/asha-workers-stage-protest-demanding-fixed-18000-salary-and-fulfilment-of-promises/article70667231.ece' },
     { text: 'Chakraborty, R. (2026, February 24). The ASHA worker\'s mental health paradox. The Hindu.', url: 'https://www.thehindu.com/society/asha-workers-mental-health-paradox-rural-health-lack-of-incentive/article70147080.ece' },
-    { text: 'Undefined. (2025, March 14). ASHA workers and honorarium. INSIGHTS IAS.', url: 'https://www.insightsonindia.com/2025/03/14/asha-workers-and-honorarium/' },
+    { text: 'Undefined. (2025, March 14). ASHA workers and honorarium. INSIGHTS IAS - Simplifying UPSC IAS Exam Preparation.', url: 'https://www.insightsonindia.com/2025/03/14/asha-workers-and-honorarium/' },
     { text: 'World Health Organization: WHO. (2021, December 3). ASHA — the driving force behind India\'s public health services.', url: 'https://www.who.int/india/news-room/feature-stories/detail/asha-the-driving-force-behind-india-s-public-health-services' },
     { text: 'Prakash, P. (2022, May 28). Explained | All about India\'s ASHA workers, recipients of WHO\'s Global Leaders Award. The Hindu.', url: 'https://www.thehindu.com/news/national/explained-all-about-indias-asha-workers-recipients-of-whos-global-leaders-award/article65457663.ece' },
-    { text: 'Dudala, S. R., et al. (2021). Assessment of gaps of knowledge and practices of frontline community workers in Chandragiri Mandal, Chittoor district, Andhra Pradesh. IJCMPH, 8(3), 1299.', url: 'https://doi.org/10.18203/2394-6040.ijcmph20210817' },
+    { text: 'Dudala, S. R., Ponna, S. N., Upadrasta, V. P., Bathina, H., Sadasivuni, R., Geddam, J. J. B., & Kapu, A. K. R. (2021). Assessment of gaps of knowledge and practices of frontline community workers in Chandragiri Mandal, Chittoor district, Andhra Pradesh: maternal and child health services. International Journal of Community Medicine and Public Health, 8(3), 1299.', url: 'https://doi.org/10.18203/2394-6040.ijcmph20210817' },
     { text: 'S. Swarna. (2026). Knowledge of Accredited Social Health Activists on SDGs, Maternal Health, Child Health, Reproductive Health in selected District of Andhra Pradesh. Galore International Journal of Applied Sciences and Humanities, 88.', url: 'https://doi.org/10.52403/gijash.20260113' },
-    { text: 'Biyyala, R., Moola, R. S. R., & Arepalli, S. (2019). Evaluating the performance of ASHA workers in rural and tribal areas in Kurnool division. IJCMPH, 6(8), 3418.', url: 'https://doi.org/10.18203/2394-6040.ijcmph20193464' },
-    { text: 'Abdel-All, M., Abimbola, S., Praveen, D., & Joshi, R. (2019). What do Accredited Social Health Activists need to provide comprehensive care incorporating NCDs? Human Resources for Health, 17(1), 73.', url: 'https://doi.org/10.1186/s12960-019-0418-9' },
-    { text: 'Sreerama, G., et al. (2015). Difficulties in accessing and availing of public health care systems among rural population in Chittoor District, AP. IJMPH, 5(4), 265.', url: 'https://doi.org/10.4103/2230-8598.165085' },
+    { text: 'Biyyala, R., Moola, R. S. R., & Arepalli, S. (2019). Evaluating the performance of ASHA workers in rural and tribal areas in Kurnool division of Kurnool district, Andhra Pradesh. International Journal of Community Medicine and Public Health, 6(8), 3418.', url: 'https://doi.org/10.18203/2394-6040.ijcmph20193464' },
+    { text: 'Abdel-All, M., Abimbola, S., Praveen, D., & Joshi, R. (2019). What do Accredited Social Health Activists need to provide comprehensive care that incorporates non-communicable diseases? Findings from a qualitative study in Andhra Pradesh, India. Human Resources for Health, 17(1), 73.', url: 'https://doi.org/10.1186/s12960-019-0418-9' },
+    { text: 'Sreerama, G., Matavalum, S., Chandresekharan, P., & Thunga, V. (2015). Difficulties in accessing and availing of public health care systems among rural population in Chittoor District, Andhra Pradesh. International Journal of Medicine and Public Health, 5(4), 265.', url: 'https://doi.org/10.4103/2230-8598.165085' },
     { text: 'Saxena, V., Kakkar, R., & Semwal, V. (2012). A study on ASHA - a change agent of the society. Indian Journal of Community Health, 24(1), 15–18.', url: 'https://www.cabdirect.org/cabdirect/abstract/20123357967' },
-    { text: 'Padda, P., Devgun, S., Gupta, V., Chaudhari, S., & Singh, G. (2013). Role of ASHA in improvement of maternal health status in northern India: an urban rural comparison.', url: 'https://www.iapsmupuk.org/journal/index.php/IJCH/article/view/357' },
-    { text: 'Gopalan, S. S., Mohanty, S., & Das, A. (2012). Assessing community health workers\' performance motivation: a mixed-methods approach on India\'s ASHA programme. BMJ Open, 2(5), e001557.', url: 'https://doi.org/10.1136/bmjopen-2012-001557' },
-    { text: 'Scott, K., George, A. S., & Ved, R. R. (2019). Taking stock of 10 years of published research on the ASHA programme. Health Research Policy and Systems, 17(1).', url: 'https://doi.org/10.1186/s12961-019-0427-0' },
-    { text: 'Scott, K., & Shanker, S. (2010). Tying their hands? Institutional obstacles to the success of the ASHA programme in rural north India. AIDS Care, 22(sup2), 1606–1612.', url: 'https://doi.org/10.1080/09540121.2010.507751' },
-    { text: 'Dholakia, R. H., & Bajpai, N. (2011). Improving the performance of accredited social health activists in India. Columbia Academic Commons.', url: 'https://doi.org/10.7916/d8988g63' },
-    { text: 'Scott, K., Beckham, S. W., et al. (2018). What do we know about community-based health worker programs? A systematic review. Human Resources for Health, 16(1), 39.', url: 'https://doi.org/10.1186/s12960-018-0304-x' },
-    { text: 'Child Rights and You. (2026). What is Anganwadi System in India? CRY India.', url: 'https://www.cry.org/blog/anganwadi-system-in-india/' },
+    { text: 'Padda, P., Devgun, S., Gupta, V., Chaudhari, S., & Singh, G. (2013, December 31). Role of ASHA in improvement of maternal health status in northern India: an urban rural comparison.', url: 'https://www.iapsmupuk.org/journal/index.php/IJCH/article/view/357' },
+    { text: 'Gopalan, S. S., Mohanty, S., & Das, A. (2012). Assessing community health workers\'  performance motivation: a mixed-methods approach on India\'s Accredited Social Health Activists (ASHA) programme. BMJ Open, 2(5), e001557.', url: 'https://doi.org/10.1136/bmjopen-2012-001557' },
+    { text: 'Scott, K., George, A. S., & Ved, R. R. (2019b). Taking stock of 10 years of published research on the ASHA programme: examining India\'s national community health worker programme from a health systems perspective. Health Research Policy and Systems, 17(1).', url: 'https://doi.org/10.1186/s12961-019-0427-0' },
+    { text: 'Scott, K., & Shanker, S. (2010). Tying their hands? Institutional obstacles to the success of the ASHA community health worker programme in rural north India. AIDS Care, 22(sup2), 1606–1612.', url: 'https://doi.org/10.1080/09540121.2010.507751' },
+    { text: 'Dholakia, R. H., & Bajpai, N. (2011). Improving the performance of accredited social health activists in India. Columbia Academic Commons (Columbia University).', url: 'https://doi.org/10.7916/d8988g63' },
+    { text: 'Scott, K., Beckham, S. W., Gross, M., Pariyo, G., Rao, K. D., Cometto, G., & Perry, H. B. (2018). What do we know about community-based health worker programs? A systematic review of existing reviews on community health workers. Human Resources for Health, 16(1), 39.', url: 'https://doi.org/10.1186/s12960-018-0304-x' },
+    { text: 'Child Rights and You. (2026, March 31). What is Anganwadi System in India? Objectives & Necessity. CRY - Give Children a Happy, Healthy and Creative Childhood.', url: 'https://www.cry.org/blog/anganwadi-system-in-india/' },
     { text: 'ASHA | Roles, responsibilities, and benefits. (2025, July 30).', url: 'https://www.doctutorials.com/guide/asha' },
     { text: 'Malhotra, R. K. M. D. (2025). Unrecognised pillars of public health: The struggles of ASHA workers in India. Vascular and Endovascular Review.', url: 'https://doi.org/10.64149/j.ver.8.15s.116-126' },
-    { text: 'Sundararaman, T., Ved, R., Gupta, G., & Samatha, M. (2012). Determinants of functionality and effectiveness of community health workers. BMC Proceedings, 6(S5).', url: 'https://doi.org/10.1186/1753-6561-6-s5-o30' },
-    { text: 'Ved, R., Scott, K., Gupta, G., et al. (2019). How are gender inequalities facing India\'s one million ASHAs being addressed? Human Resources for Health, 17(1), 3.', url: 'https://doi.org/10.1186/s12960-018-0338-0' },
-    { text: 'Renuka, B., Sreedevi, A., & Paul, C. N. (2014). Impact of Educational Intervention on Knowledge of Asha Workers about Their Job Responsibilities in Rural and Tribal Areas of Kurnool Division. International Journal of Scientific and Research Publications, 4(11).', url: 'https://www.ijsrp.org/research-paper-1114/ijsrp-p3526.pdf' },
+    { text: 'Sundararaman, T., Ved, R., Gupta, G., & Samatha, M. (2012). Determinants of functionality and effectiveness of community health workers: results from evaluation of ASHA program in eight Indian states. BMC Proceedings, 6(S5).', url: 'https://doi.org/10.1186/1753-6561-6-s5-o30' },
+    { text: 'Ved, R., Scott, K., Gupta, G., Ummer, O., Singh, S., Srivastava, A., & George, A. S. (2019). How are gender inequalities facing India\'s one million ASHAs being addressed? Policy origins and adaptations for the world\'s largest all-female community health worker programme. Human Resources for Health, 17(1), 3.', url: 'https://doi.org/10.1186/s12960-018-0338-0' },
+    { text: 'Renuka, B., Sreedevi, A., & Paul, C. N. (2014). Impact of Educational Intervention on Knowledge of Asha Workers about Their Job Responsibilities in Rural and Tribal Areas of Kurnool Division in Kurnool District, Andhra Pradesh. International Journal of Scientific and Research Publications, 4(11).', url: 'https://www.ijsrp.org/research-paper-1114/ijsrp-p3526.pdf' },
     { text: 'Government of Andhra Pradesh, Women Development & Child Welfare Department. (n.d.). Evaluation of Accredited Social Health Activist (ASHA) in Andhra Pradesh.', url: 'https://wdcw.ap.gov.in/Schemes/Saksham' },
     { text: 'Role of ASHA workers in Andhra Pradesh – A review article. (2024). DNR College Research Publication.', url: 'https://www.dnrcollege.org/2024/3/3.4.3/P_37.pdf' },
     { text: 'RURAL HEALTH — RISHI VALLEY EDUCATION CENTRE. (n.d.). RISHI VALLEY EDUCATION CENTRE.', url: 'https://www.rishivalley.org/rural-health-centre' },
@@ -124,7 +116,7 @@ export default function AshaPage() {
 
         {/* INTRODUCTION */}
         <section style={{ padding: '7rem 2rem' }}>
-          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <span style={sectionLabel}>Introduction</span>
             <div style={divider} />
             <h2 style={sectionHeading}>Introduction</h2>
@@ -145,7 +137,7 @@ export default function AshaPage() {
 
         {/* LITERATURE REVIEW */}
         <section style={{ backgroundColor: 'var(--parchment)', padding: '7rem 2rem' }}>
-          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <span style={sectionLabel}>Literature Review</span>
             <div style={divider} />
             <h2 style={sectionHeading}>Literature Review</h2>
@@ -184,15 +176,15 @@ export default function AshaPage() {
                     ['ANM (for comparison)', '&#8377;30,000/month + pension + 20 days leave/year'],
                   ].map(([component, detail], i) => (
                     <tr key={i} style={{ backgroundColor: i % 2 === 0 ? 'var(--offwhite)' : 'var(--parchment)', borderBottom: '1px solid #E8DFD0' }}>
-                      <td style={{ padding: '0.8rem 1.2rem', color: 'var(--inkbrown)', fontWeight: i === 6 ? 600 : 400, verticalAlign: 'top' }}>{component}</td>
-                      <td style={{ padding: '0.8rem 1.2rem', color: '#3a2a1a', fontWeight: i === 6 ? 600 : 400 }} dangerouslySetInnerHTML={{ __html: detail }} />
+                      <td style={{ padding: '0.8rem 1.2rem', color: 'var(--inkbrown)', fontWeight: 600, verticalAlign: 'top' }}>{component}</td>
+                      <td style={{ padding: '0.8rem 1.2rem', color: '#3a2a1a' }} dangerouslySetInnerHTML={{ __html: detail }} />
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p style={{ fontFamily: 'Crimson Text, serif', fontSize: '0.82rem', color: 'var(--stone)', marginTop: '0.75rem', fontStyle: 'italic' }}>
-              Source: <a href="https://careermeto.com/en/annamayya-asha-worker-salary-2025/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)' }}>careermeto.com/en/annamayya-asha-worker-salary-2025/</a>
+              Source: <a href="https://careermeto.com/en/annamayya-asha-worker-salary-2025/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)' }}>https://careermeto.com/en/annamayya-asha-worker-salary-2025/</a>
             </p>
           </div>
         </section>
@@ -232,7 +224,7 @@ export default function AshaPage() {
                     ['Saturday', 'Anganwadi immunisation (rotating across four villages each month); iron syrup for ages 3&#8211;5'],
                     ['Sunday', 'Emergency standby; early finish if no urgent cases'],
                     ['3rd Friday', 'All pregnant women are escorted to Kurabalakota PHC'],
-                    ['Twice monthly', 'All pregnant women to Madanapalle District Hospital; Village Health Nutrition Day; Village Health Sanitation Day'],
+                    ['Twice monthly', 'All pregnant women to Madanapalle District Hospital; Village Health Nutrition Day; Village Health Sanitation Day;'],
                     ['1st Tuesday', 'Compulsory ASHA meeting, Kurabalakota PHC'],
                     ['Monthly', 'Gram Sabha meeting'],
                   ].map(([day, activity], i) => (
@@ -249,63 +241,52 @@ export default function AshaPage() {
 
         {/* FINDINGS */}
         <section id="findings" style={{ backgroundColor: 'var(--parchment)', padding: '7rem 2rem' }}>
-          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <span style={sectionLabel}>Findings</span>
             <div style={divider} />
+            <h2 style={sectionHeading}>Findings</h2>
 
-            {/* What ASHA workers really do */}
-            <div style={{ marginBottom: '5rem' }}>
-              <h2 style={sectionHeading}>What ASHA workers really do</h2>
+            <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', fontWeight: 500, color: 'var(--inkbrown)', marginBottom: '1.25rem', marginTop: '2rem' }}>What ASHA workers really do</h3>
 
-              {/* IMAGE 3 */}
-              <div style={{ width: '100%', margin: '2rem 0' }}>
-                <Image src="/images/asha-5.jpg" alt="An ASHA worker, in the white saree, detailing the nature of her work" width={1200} height={800} sizes="100vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
-                <p style={figureCaption}>Image 3: An ASHA worker, in the white saree, detailing the nature of her work</p>
-              </div>
-
-              <p style={bodyText}>A typical working day for the ladies spoken to begins around nine in the morning and does not have a clear end. Officially, ASHA workers are classified as part-time volunteers and are only required to work for a few hours, but in practice, they are on duty from 9am to 5pm and, in case of emergencies, are on call around the clock. Chamundeshwari described being reachable at any hour &#8211; when a lady in her area goes into labour at two in the morning, she is the person who gets the phone call. Hemlata reiterated this. Weekends too are rarely free, especially during immunisation drives or surveys.</p>
-              <p style={bodyText}>The range of work that each of them is expected to handle is striking. Based on interview learnings and field visit observations, responsibilities include prenatal check-ups and follow-ups, escorting pregnant women to hospital when labour begins, post-delivery home visits, newborn weighing and the administration of the full schedule of childhood vaccinations, TB screening and follow-up with patients on long courses of treatment, household-level dengue and malaria surveys (that involve walking from door to door checking for stagnant water), distributing iron tablets, family planning counselling, contact tracing during outbreaks, and a substantial amount of register-keeping. Ammajan also mentioned tasks that fall outside any official remit, such as helping families apply for disability certificates and personally following up on patients who have stopped taking their TB medication.</p>
-              <p style={bodyText}>Each ASHA worker is responsible for about a thousand people, and sometimes more. When asked whether this caseload was too high, all three ladies laughed. Hemlata pointed out that the official one-ASHA-per-thousand guideline does not account for the fact that the villages are physically spread out, so reaching a single household can take half an hour on foot; many times, if there is no one else in the village willing to take up the job of being an ASHA worker, they have to cover larger populations. As she put it, the number on paper does not capture what the job actually demands.</p>
+            {/* IMAGE 3 */}
+            <div style={{ width: '100%', margin: '2rem 0' }}>
+              <Image src="/images/asha-5.jpg" alt="An ASHA worker, in the white saree, detailing the nature of her work" width={1200} height={800} sizes="100vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
+              <p style={figureCaption}>Image 3: An ASHA worker, in the white saree, detailing the nature of her work</p>
             </div>
 
-            {/* Pay */}
-            <div style={{ marginBottom: '5rem' }}>
-              <h2 style={sectionHeading}>Pay and money problems</h2>
-              <p style={bodyText}>Pay was the single issue that came up in every interview, with all three ASHA workers and with most of the community members too. ASHA workers do not receive a fixed salary. Their income consists of a small monthly honorarium of roughly &#8377;10,000 (the exact figure varies by state) together with an incentive. The incentive structure looks reasonable on paper, but payment is often delayed by months or never given. Chamundeshwari told me she was still waiting on incentives from work she had done five months earlier and others, regardless of the effort they put in, never received incentives at all.</p>
-              <p style={bodyText}>In addition to the compensation being meagre, ASHA workers absorb a significant amount of out-of-pocket expenses. They use their personal phones for work, making calls to patients, sending photos of registers, navigating government apps, and they pay for their own mobile data. During the first months of the COVID-19 pandemic, they bought their own Personal Protective Equipment (PPE). They buy their own registers, pens, and at times even bus tickets when they have to travel to the block office to submit reports.</p>
-              <p style={bodyText}>Their personal financial situations makes these costs much harder to bear. Chamundeshwari&#8217;s husband has been unwell for years and cannot work consistently, which means her ASHA income is essentially what keeps the household running. Ammajan, whose husband has passed away, is the sole earner for children still in school, and she described having to choose between paying her phone bill and paying their school fees. Hemlata&#8217;s situation was a little easier because her husband works, but she was still firm that the income did not match the hours she put in. None of the three women has any form of pension, leave entitlement, or job security to fall back on.</p>
+            <p style={bodyText}>A typical working day for the ladies spoken to begins around nine in the morning and does not have a clear end. Officially, ASHA workers are classified as part-time volunteers and are only required to work for a few hours, but in practice, they are on duty from 9am to 5pm and, in case of emergencies, are on call around the clock. Chamundeshwari described being reachable at any hour &#8211; when a lady in her area goes into labour at two in the morning, she is the person who gets the phone call. Hemlata reiterated this. Weekends too are rarely free, especially during immunisation drives or surveys.</p>
+            <p style={bodyText}>The range of work that each of them is expected to handle is striking. Based on interview learnings and field visit observations, responsibilities include prenatal check-ups and follow-ups, escorting pregnant women to hospital when labour begins, post-delivery home visits, newborn weighing and the administration of the full schedule of childhood vaccinations, TB screening and follow-up with patients on long courses of treatment, household-level dengue and malaria surveys (that involve walking from door to door checking for stagnant water), distributing iron tablets, family planning counselling, contact tracing during outbreaks, and a substantial amount of register-keeping. Ammajan also mentioned tasks that fall outside any official remit, such as helping families apply for disability certificates and personally following up on patients who have stopped taking their TB medication.</p>
+            <p style={bodyText}>Each ASHA worker is responsible for about a thousand people, and sometimes more. When asked whether this caseload was too high, all three ladies laughed. Hemlata pointed out that the official one-ASHA-per-thousand guideline does not account for the fact that the villages are physically spread out, so reaching a single household can take half an hour on foot; many times, if there is no one else in the village willing to take up the job of being an ASHA worker, they have to cover larger populations. As she put it, the number on paper does not capture what the job actually demands.</p>
 
-              {/* IMAGE 4 */}
-              <div style={{ width: '100%', margin: '2rem 0' }}>
-                <Image src="/images/asha-1.jpg" alt="An ASHA worker describing her living conditions outside her house" width={1200} height={800} sizes="100vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
-                <p style={figureCaption}>Image 4: An ASHA worker describing her living conditions outside her house</p>
-              </div>
+            <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', fontWeight: 500, color: 'var(--inkbrown)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Pay and money problems</h3>
+            <p style={bodyText}>Pay was the single issue that came up in every interview, with all three ASHA workers and with most of the community members too. ASHA workers do not receive a fixed salary. Their income consists of a small monthly honorarium of roughly &#8377;10,000 (the exact figure varies by state) together with an incentive. The incentive structure looks reasonable on paper, but payment is often delayed by months or never given. Chamundeshwari told me she was still waiting on incentives from work she had done five months earlier and others, regardless of the effort they put in, never received incentives at all.</p>
+            <p style={bodyText}>In addition to the compensation being meagre, ASHA workers absorb a significant amount of out-of-pocket expenses. They use their personal phones for work, making calls to patients, sending photos of registers, navigating government apps, and they pay for their own mobile data. During the first months of the COVID-19 pandemic, they bought their own Personal Protective Equipment (PPE). They buy their own registers, pens, and at times even bus tickets when they have to travel to the block office to submit reports.</p>
+            <p style={bodyText}>Their personal financial situations makes these costs much harder to bear. Chamundeshwari&#8217;s husband has been unwell for years and cannot work consistently, which means her ASHA income is essentially what keeps the household running. Ammajan, whose husband has passed away, is the sole earner for children still in school, and she described having to choose between paying her phone bill and paying their school fees. Hemlata&#8217;s situation was a little easier because her husband works, but she was still firm that the income did not match the hours she put in. None of the three women has any form of pension, leave entitlement, or job security to fall back on.</p>
+
+            {/* IMAGE 4 */}
+            <div style={{ width: '100%', margin: '2rem 0' }}>
+              <Image src="/images/asha-1.jpg" alt="An ASHA worker describing her living conditions outside her house" width={1200} height={800} sizes="100vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
+              <p style={figureCaption}>Image 4: An ASHA worker describing her living conditions outside her house</p>
             </div>
 
-            {/* Community */}
-            <div style={{ marginBottom: '5rem' }}>
-              <h2 style={sectionHeading}>What the community thinks</h2>
-              <p style={bodyText}>The community&#8217;s views were more divided than expected. Some respondents spoke about their ASHA worker in genuinely warm terms. One young mother credited the ASHA worker with saving her baby&#8217;s life: she had had a complicated pregnancy, and the ASHA worker had visited her again and again, pushing her to attend her scans and accompanying her to hospital when labour began. An older woman said the ASHA worker was the only person in any official capacity who had ever come to her door simply to ask whether she was alright.</p>
-              <p style={bodyText}>Other respondents had little or no contact with their ASHA worker at all, and a few did not know who their ASHA was. When probed further, the explanation usually came down to one of two things. Either the household lived in one of the more outlying hamlets that were difficult to reach regularly, or there was a quiet social distance, usually along religious or caste lines, that no one quite stated openly, but was clearly present.</p>
-              <p style={bodyText}>A subset of respondents preferred to go to private hospitals or clinics, despite the cost. Their reasoning was partly about trust &#8211; they felt the government sub-centre was understaffed and rushed &#8211; and partly about status. One man indicated that government services were &#8220;for the poor&#8221; and that he did not want to be perceived in that way.</p>
-              <p style={bodyText}>COVID-19 came up in nearly every community interview. Several respondents felt that ASHA workers deserved greater recognition and compensation for their work during that period, and expressed frustration that their conditions had not improved since. Respondents reported dissatisfaction with compensation relative to workload.</p>
+            <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', fontWeight: 500, color: 'var(--inkbrown)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>What the community thinks</h3>
+            <p style={bodyText}>The community&#8217;s views were more divided than expected. Some respondents spoke about their ASHA worker in genuinely warm terms. One young mother credited the ASHA worker with saving her baby&#8217;s life: she had had a complicated pregnancy, and the ASHA worker had visited her again and again, pushing her to attend her scans and accompanying her to hospital when labour began. An older woman said the ASHA worker was the only person in any official capacity who had ever come to her door simply to ask whether she was alright.</p>
+            <p style={bodyText}>Other respondents had little or no contact with their ASHA worker at all, and a few did not know who their ASHA was. When probed further, the explanation usually came down to one of two things. Either the household lived in one of the more outlying hamlets that were difficult to reach regularly, or there was a quiet social distance, usually along religious or caste lines, that no one quite stated openly, but was clearly present.</p>
+            <p style={bodyText}>A subset of respondents preferred to go to private hospitals or clinics, despite the cost. Their reasoning was partly about trust &#8211; they felt the government sub-centre was understaffed and rushed &#8211; and partly about status. One man indicated that government services were &#8220;for the poor&#8221; and that he did not want to be perceived in that way.</p>
+            <p style={bodyText}>COVID-19 came up in nearly every community interview. Several respondents felt that ASHA workers deserved greater recognition and compensation for their work during that period, and expressed frustration that their conditions had not improved since. Respondents reported dissatisfaction with compensation relative to workload.</p>
+
+            <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', fontWeight: 500, color: 'var(--inkbrown)', marginBottom: '1.25rem', marginTop: '2.5rem' }}>Problems in the system</h3>
+            <p style={bodyText}>There is more to the story than what we see every day. The principal issue with ASHA workers is that they are not permanent employees. The government states their employment status as &#8220;voluntary&#8221;. This means ASHA workers do not get a salary that they can count on. They do not get time off when they need it or a pension when they are old. ASHA workers don&#8217;t have any of the things that come with a real government job. Many ASHA workers have been in the role for two decades and still not classified as permanent. A few of the women spoken to had been doing this work for over twelve years and still had no job security, no pension, and no real path forward. They are still waiting for something that will give them security. Given the critical role they play, the issue of ASHA workers is a problem that needs to be solved.</p>
+            <p style={bodyText}>This becomes especially visible when ASHA workers are compared with Auxiliary Nurse Midwives (ANMs), who do overlapping work in the same villages. ANMs are formally employed by the government, with a fixed monthly salary, leave entitlements, and a pension. In practice, the ASHA worker often does the legwork (visiting houses, identifying patients, bringing them in) while the ANM handles the clinical portion. The ASHA worker is then paid a fraction of what the ANM earns. All three ASHA workers raised this comparison without prompting, and it was clear that the disparity stung.</p>
+
+            {/* IMAGE 5 */}
+            <div style={{ width: '100%', margin: '2rem 0' }}>
+              <Image src="/images/asha-2.jpg" alt="an ANM comparing her job details and compensation with that of ASHAs" width={1200} height={800} sizes="100vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
+              <p style={figureCaption}>Image 5: an ANM comparing her job details and compensation with that of ASHAs</p>
             </div>
 
-            {/* System */}
-            <div>
-              <h2 style={sectionHeading}>Problems in the system</h2>
-              <p style={bodyText}>There is more to the story than what we see every day. The principal issue with ASHA workers is that they are not permanent employees. The government states their employment status as &#8220;voluntary&#8221;. This means ASHA workers do not get a salary that they can count on. They do not get time off when they need it or a pension when they are old. ASHA workers don&#8217;t have any of the things that come with a real government job. Many ASHA workers have been in the role for two decades and still not classified as permanent. A few of the women spoken to had been doing this work for over twelve years and still had no job security, no pension, and no real path forward. They are still waiting for something that will give them security. Given the critical role they play, the issue of ASHA workers is a problem that needs to be solved.</p>
-              <p style={bodyText}>This becomes especially visible when ASHA workers are compared with Auxiliary Nurse Midwives (ANMs), who do overlapping work in the same villages. ANMs are formally employed by the government, with a fixed monthly salary, leave entitlements, and a pension. In practice, the ASHA worker often does the legwork (visiting houses, identifying patients, bringing them in) while the ANM handles the clinical portion. The ASHA worker is then paid a fraction of what the ANM earns. All three ASHA workers raised this comparison without prompting, and it was clear that the disparity stung.</p>
-
-              {/* IMAGE 5 */}
-              <div style={{ width: '100%', margin: '2rem 0' }}>
-                <Image src="/images/asha-2.jpg" alt="an ANM comparing her job details and compensation with that of ASHAs" width={1200} height={800} sizes="100vw" style={{ width: '100%', height: 'auto', display: 'block' }} />
-                <p style={figureCaption}>Image 5: an ANM comparing her job details and compensation with that of ASHAs</p>
-              </div>
-
-              <p style={bodyText}>A specific case made the unfairness particularly clear. A woman in one of the villages had undergone a tubectomy and developed complications afterwards. The ASHA worker had been the one to counsel her, bring her in for the procedure, and follow up at home for weeks. The incentive for the whole episode was small. When complications arose however, it was the ASHA worker the family blamed, not the doctor and not the ANM. She absorbed the social cost without receiving either the professional standing or the pay that would have come with it.</p>
-              <p style={bodyText}>The final structural issue is the move to digital reporting. The government has been steadily shifting registers, reports, and surveys onto smartphone applications. None of the three ASHA workers I spoke to had been given a phone by the government, and none had received meaningful training on the apps. They were navigating the software on their personal handsets, often with help from their children, while still being held to the same deadlines as before. Chamundeshwari said she had been pulled up for late submissions even though her phone was old and the application kept crashing. The system, in short, is asking these women to function as digital workers without giving them the tools or the instructions to do so.</p>
-            </div>
+            <p style={bodyText}>A specific case made the unfairness particularly clear. A woman in one of the villages had undergone a tubectomy and developed complications afterwards. The ASHA worker had been the one to counsel her, bring her in for the procedure, and follow up at home for weeks. The incentive for the whole episode was small. When complications arose however, it was the ASHA worker the family blamed, not the doctor and not the ANM. She absorbed the social cost without receiving either the professional standing or the pay that would have come with it.</p>
+            <p style={bodyText}>The final structural issue is the move to digital reporting. The government has been steadily shifting registers, reports, and surveys onto smartphone applications. None of the three ASHA workers I spoke to had been given a phone by the government, and none had received meaningful training on the apps. They were navigating the software on their personal handsets, often with help from their children, while still being held to the same deadlines as before. Chamundeshwari said she had been pulled up for late submissions even though her phone was old and the application kept crashing. The system, in short, is asking these women to function as digital workers without giving them the tools or the instructions to do so.</p>
           </div>
         </section>
 
@@ -332,54 +313,21 @@ export default function AshaPage() {
 
         {/* POLICY RECOMMENDATIONS */}
         <section id="recommendations" style={{ backgroundColor: 'var(--parchment)', padding: '7rem 2rem' }}>
-          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <span style={sectionLabel}>Policy Recommendations</span>
             <div style={divider} />
-            <h2 style={{ ...sectionHeading, marginBottom: '3rem' }}>Policy Recommendations</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-              {[
-                {
-                  num: '01',
-                  title: 'Permanent employment',
-                  body: 'The most fundamental shift the government could make is to stop calling ASHAs "volunteers" and recognize them as permanent health workers with a fixed monthly salary. Right now, their pay is split between the centre and state and is unpredictable, which means in some months, an ASHA might earn ₹5,000 while doing the same amount of effort as someone earning ₹10,000 in a different state. Several state-level commissions and the 45th and 46th Indian Labour Conferences have already recommended that ASHAs be classified as regular workers, but nothing has actually moved at the central level. A guaranteed minimum monthly salary, even ₹15,000, with incentives layered on top, would give these ladies some financial stability and also signal that their work is taken seriously by the state.',
-                },
-                {
-                  num: '02',
-                  title: 'Incentives',
-                  body: 'Even if permanent employment takes time, the incentive structure itself needs fixing. Currently there are over 60 different incentive heads, each with its own paperwork and verification process, which is part of why payments get delayed for months. Consolidating these into approximately 8–10 broader categories tied to outcomes (maternal health, child health, NCDs, etc.) would reduce the administrative work for both ASHAs and the PHC staff who process payments. Linking payments to a direct digital transfer system with a public dashboard where ASHAs can see what they\'re owed would also reduce dependence on supervisors who sometimes hold up payments.',
-                },
-                {
-                  num: '03',
-                  title: 'Social security',
-                  body: 'ASHAs currently fall through almost every social security net in the country. They don\'t get EPF, ESIC, gratuity, or a pension, even though many of them have been doing this work for over a decade and treat it as their primary occupation. Extending these benefits would acknowledge the long-term nature of the role. At the very least, health insurance for the ASHA and her immediate family can be provided along with maternity benefits (which is almost ironic given that they are the ones promoting institutional deliveries), and a retirement amount that pays out after 10+ years of service.',
-                },
-                {
-                  num: '04',
-                  title: 'Workplace safety',
-                  body: 'Safety came up again and again in the interviews and is almost completely missing from current policy. The ASHAs spoken to described doing night visits during deliveries, walking alone through fields and unlit roads, dealing with aggressive male relatives during household surveys, and, during COVID, being sent into infected homes without proper PPE. A basic safety protocol needs to be put in place: a transport allowance or arrangement, especially in rural and tribal areas, and PPE supply during emergencies.',
-                },
-                {
-                  num: '05',
-                  title: 'Representation in decision-making',
-                  body: 'The last thing to push for is giving ASHAs an actual seat at the table when health policy gets made. Right now, they\'re treated as the people who implement decisions made by people who have never done a household visit. Mandating ASHA representation (with voting rights, not just attendance) would change this. They have ground-level knowledge that no bureaucrat or consultant has, and using that knowledge would probably make health programmes work better, not just be fairer to the ladies doing the work.',
-                },
-              ].map((p, i) => {
-                const c = policyCardColors[i]
-                return (
-                  <div key={p.num} style={{ backgroundColor: c.bg, padding: '2.5rem 2rem', borderRadius: '2px' }}>
-                    <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '3rem', fontWeight: 300, color: c.accent, lineHeight: 1, marginBottom: '1rem', opacity: 0.6 }}>{p.num}</p>
-                    <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', fontWeight: 500, color: c.text, marginBottom: '1rem', lineHeight: 1.2, fontStyle: 'italic' }}>{p.title}</h3>
-                    <p style={{ fontFamily: 'Crimson Text, serif', fontSize: '1rem', lineHeight: 1.75, color: c.text, opacity: 0.85 }}>{p.body}</p>
-                  </div>
-                )
-              })}
-            </div>
+            <h2 style={sectionHeading}>Policy Recommendations</h2>
+            <p style={bodyText}><em>Permanent employment.</em> The most fundamental shift the government could make is to stop calling ASHAs &#8220;volunteers&#8221; and recognize them as permanent health workers with a fixed monthly salary. Right now, their pay is split between the centre and state and is unpredictable, which means in some months, an ASHA might earn &#8377;5,000 while doing the same amount of effort as someone earning &#8377;10,000 in a different state. Several state-level commissions and the 45th and 46th Indian Labour Conferences have already recommended that ASHAs be classified as regular workers, but nothing has actually moved at the central level. A guaranteed minimum monthly salary, even &#8377;15,000, with incentives layered on top, would give these ladies some financial stability and also signal that their work is taken seriously by the state.</p>
+            <p style={bodyText}><em>Incentives.</em> Even if permanent employment takes time, the incentive structure itself needs fixing. Currently there are over 60 different incentive heads, each with its own paperwork and verification process, which is part of why payments get delayed for months. Consolidating these into approximately 8&#8211;10 broader categories tied to outcomes (maternal health, child health, NCDs, etc.) would reduce the administrative work for both ASHAs and the PHC staff who process payments. Linking payments to a direct digital transfer system with a public dashboard where ASHAs can see what they&#8217;re owed would also reduce dependence on supervisors who sometimes hold up payments. The ladies interviewed were upset about the amount and equally about the unpredictability and the running around required to actually receive their dues, if at all they do.</p>
+            <p style={bodyText}><em>Social security.</em> ASHAs currently fall through almost every social security net in the country. They don&#8217;t get EPF, ESIC, gratuity, or a pension, even though many of them have been doing this work for over a decade and treat it as their primary occupation. Extending these benefits would acknowledge the long-term nature of the role. At the very least, health insurance for the ASHA and her immediate family can be provided along with maternity benefits (which is almost ironic given that they are the ones promoting institutional deliveries), and a retirement amount that pays out after 10+ years of service. Some states, like Kerala, have piloted small pension schemes for ASHAs, and the results have been encouraging in terms of retention. This would give these ladies something to fall back on when they retire.</p>
+            <p style={bodyText}><em>Workplace safety.</em> Safety came up again and again in the interviews and is almost completely missing from current policy. The ASHAs spoken to described doing night visits during deliveries, walking alone through fields and unlit roads, dealing with aggressive male relatives during household surveys, and, during COVID, being sent into infected homes without proper PPE. A basic safety protocol needs to be put in place: a transport allowance or arrangement, especially in rural and tribal areas, and PPE supply during emergencies.</p>
+            <p style={bodyText}><em>Representation in decision-making.</em> The last thing to push for is giving ASHAs an actual seat at the table when health policy gets made. Right now, they&#8217;re treated as the people who implement decisions made by people who have never done a household visit. Mandating ASHA representation (with voting rights, not just attendance) would change this. They have ground-level knowledge that no bureaucrat or consultant has, and using that knowledge would probably make health programmes work better, not just be fairer to the ladies doing the work.</p>
           </div>
         </section>
 
         {/* CONCLUSION */}
         <section style={{ padding: '7rem 2rem' }}>
-          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <span style={sectionLabel}>Conclusion</span>
             <div style={divider} />
             <h2 style={sectionHeading}>Conclusion</h2>
@@ -390,7 +338,7 @@ export default function AshaPage() {
 
         {/* REFERENCES */}
         <section style={{ backgroundColor: 'var(--parchment)', padding: '5rem 2rem' }}>
-          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <button onClick={() => setRefsOpen(!refsOpen)} style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: 'none', border: 'none', cursor: 'pointer', padding: 0, width: '100%', textAlign: 'left' }}>
               <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.8rem', fontWeight: 500, color: 'var(--inkbrown)' }}>References</span>
               <span style={{ fontFamily: 'Crimson Text, serif', fontSize: '0.85rem', color: 'var(--stone)', letterSpacing: '0.1em' }}>{refsOpen ? '▲ collapse' : '▼ expand'}</span>
@@ -400,7 +348,7 @@ export default function AshaPage() {
                 {references.map((ref, i) => (
                   <li key={i} style={{ fontFamily: 'Crimson Text, serif', fontSize: '0.98rem', lineHeight: 1.7, color: '#4a3520', marginBottom: '0.85rem' }}>
                     {ref.text}{' '}
-                    {ref.url && <a href={ref.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)', wordBreak: 'break-all' }}>{ref.url}</a>}
+                    <a href={ref.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)', wordBreak: 'break-all' }}>{ref.url}</a>
                   </li>
                 ))}
               </ol>

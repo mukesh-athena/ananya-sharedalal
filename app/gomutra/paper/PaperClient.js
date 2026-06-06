@@ -1,5 +1,4 @@
-'use client'
-import { useState } from 'react'
+﻿'use client'
 import Image from 'next/image'
 import GomutraHeader from '@/components/layout/GomutraHeader'
 import Footer from '@/components/layout/Footer'
@@ -76,27 +75,47 @@ export default function GomutraPaperPage() {
     verticalAlign: 'top',
   })
 
-  const videoEmbed = (youtubeUrl, caption) => {
-    const videoId = youtubeUrl.includes('shorts')
-      ? youtubeUrl.split('/shorts/')[1]?.split('?')[0]
-      : youtubeUrl.includes('youtu.be')
-      ? youtubeUrl.split('youtu.be/')[1]?.split('?')[0]
-      : youtubeUrl.split('v=')[1]?.split('&')[0]
-    const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-    return (
-      <div style={{ margin: '2rem 0' }}>
-        <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'block', position: 'relative', textDecoration: 'none' }}>
-          <img src={thumbUrl} alt={caption} style={{ width: '100%', display: 'block', borderRadius: '2px' }} />
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.3)' }}>
-            <div style={{ width: '64px', height: '64px', backgroundColor: '#FF0000', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: 0, height: 0, borderTop: '12px solid transparent', borderBottom: '12px solid transparent', borderLeft: '20px solid white', marginLeft: '4px' }} />
-            </div>
-          </div>
-        </a>
-        <p style={{ fontFamily: 'Crimson Text, serif', fontSize: '0.88rem', fontStyle: 'italic', color: 'var(--stone)', marginTop: '0.65rem', lineHeight: 1.5 }}>{caption}</p>
-      </div>
-    )
+  const figureCaption = {
+    fontFamily: 'Crimson Text, serif',
+    fontSize: '0.88rem',
+    fontStyle: 'italic',
+    color: 'var(--stone)',
+    marginTop: '0.65rem',
+    lineHeight: 1.5,
+    textAlign: 'center',
   }
+
+ const linkedImage = (src, alt, caption, href) => (
+  <div style={{ margin: '2rem 0', textAlign: 'center' }}>
+    <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', textDecoration: 'none' }}>
+      <Image
+        src={src}
+        alt={alt}
+        width={800}
+        height={500}
+        sizes="(max-width: 768px) 100vw, 600px"
+        style={{ width: '100%', maxWidth: '800px', height: 'auto', display: 'block', borderRadius: '2px' }}
+      />
+    </a>
+    <p style={figureCaption}>{caption} (<a href={href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)' }}>link to YouTube video</a>)</p>
+  </div>
+)
+
+const linkedImagePDF = (src, alt, caption, href) => (
+  <div style={{ margin: '2rem 0', textAlign: 'center' }}>
+    <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', textDecoration: 'none' }}>
+      <Image
+        src={src}
+        alt={alt}
+        width={800}
+        height={500}
+        sizes="(max-width: 768px) 100vw, 600px"
+        style={{ width: '100%', maxWidth: '800px', height: 'auto', display: 'block', borderRadius: '2px' }}
+      />
+    </a>
+    <p style={figureCaption}>{caption} (<a href={href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--terracotta)' }}>link to NCERT &#8216;Materials Around Us&#8217; chapter here</a>)</p>
+  </div>
+)
 
   const linkStyle = {
     color: 'var(--terracotta)',
@@ -210,8 +229,11 @@ export default function GomutraPaperPage() {
             <p style={bodyText}>At the very top sit the grand claims: cancer (25 videos) and the &#8220;there&#8217;s literally gold in cow urine&#8221; claim (only 2 creators say it, but debunkers love to attack it). The pattern is that promoters almost always <em>lead</em> with the small believable claims before escalating to the big ones. By the time a viewer has nodded along to &#8220;it helps with constipation,&#8221; they&#8217;re already several &#8220;yes&#8221;es deep when the cancer cure shows up. The structure is doing rhetorical work that no single claim could do on its own.</p>
             <p style={bodyText}>The single most revealing experiment in the whole dataset is that Baba Ramdev and Dhruv Rathee, the loudest promoter and the loudest debunker in the dataset, built entire videos around the exact same trick. Baba Ramdev&#8217;s setup is short and visual. He pours a few drops of betadine into a glass with water, adds cow urine, and within seconds the dark colour fades, turning almost clear. He holds the glass up to the camera and frames the result as proof of gomutra&#8217;s <em>vishaghna</em> or &#8220;poison-killing&#8221; property &#8212; the visual is the argument. Dhruv Rathee&#8217;s setup is the same demonstration but he does it with his own urine instead of gomutra and gets the same result. Rathee explains that colour change isn&#8217;t cow-specific, it&#8217;s a neutralising property which any liquid reducing agent can do. What makes this interesting isn&#8217;t just that they disagree, it&#8217;s that they&#8217;re fighting over the same prop. Most debunking of gomutra on YouTube argues abstractly (&#8220;there&#8217;s no peer-reviewed study&#8230;&#8221;), which lets promoters wave it away. The betadine experiment is different because Rathee doesn&#8217;t argue with Baba Ramdev verbally, his experiment does the talking. The &#8220;miracle&#8221; becomes just a magic trick the moment the same trick works with his own urine.</p>
 
-            {videoEmbed('https://youtu.be/rjMbE9flUhQ?t=9', "Image 1: Dhruv Rathee's 'betadine experiment' using his own urine (link to YouTube video)")}
-            {videoEmbed('https://youtu.be/IB0lSmH4RKY?t=2', "Image 2: Baba Ramdev's 'betadine experiment' using gomutra (link to YouTube video)")}
+            {/* IMAGE 1 - Dhruv Rathee betadine */}
+            {linkedImage('/images/go-1.png', "Dhruv Rathee's betadine experiment using his own urine", "Image 1: Dhruv Rathee's 'betadine experiment' using his own urine", 'https://youtu.be/rjMbE9flUhQ?t=9')}
+
+            {/* IMAGE 2 - Baba Ramdev betadine */}
+            {linkedImage('/images/go-2.png', "Baba Ramdev's betadine experiment using gomutra", "Image 2: Baba Ramdev's 'betadine experiment' using gomutra", 'https://youtu.be/IB0lSmH4RKY?t=2')}
 
             <p style={bodyText}>I&#8217;m mainly going to focus on the two findings that have a direct implication for how history is being understood in India, because that&#8217;s what I think is genuinely new here. Many gomutra videos are doing historiography without realising it. They&#8217;re collectively writing a version of the Indian past where Vedic medicine flows uninterrupted to today&#8217;s bottle of Godhan Ark, the Mughals and British never existed, and the West shows up only as verification. And the debunker side, by sticking strictly to chemistry, has let that historiography go unchallenged.</p>
 
@@ -231,9 +253,9 @@ export default function GomutraPaperPage() {
                 </thead>
                 <tbody>
                   {[
-                    ['Named ancient texts (Charaka, Sushruta, Ashtanga Hridaya, Bhavaprakasha)', '26', '"we have three great texts… Sushruta Samhita, Charaka Samhita, and Bhavaprakasha Nighantu" Rakesh Agarwal'],
-                    ['"Thousands of years ago" / "since ancient times"', '12', '"For thousands of years, cow urine has been used…" Dr. Raj Satpute'],
-                    ['Rishis / sages / ancestors', '13', '"Vagbhata Rishi has described the \'Mutravarg\'…" Dr. Rupali Jain'],
+                    ['Named ancient texts (Charaka, Sushruta, Ashtanga Hridaya, Bhavaprakasha)', '26', '"we have three great textsâ€¦ Sushruta Samhita, Charaka Samhita, and Bhavaprakasha Nighantu" Rakesh Agarwal'],
+                    ['"Thousands of years ago" / "since ancient times"', '12', '"For thousands of years, cow urine has been usedâ€¦" Dr. Raj Satpute'],
+                    ['Rishis / sages / ancestors', '13', '"Vagbhata Rishi has described the \'Mutravarg\'â€¦" Dr. Rupali Jain'],
                     ['Vedas referenced', '13', '"in the Vedas, it is given the status of Amrit" Rakesh Agarwal'],
                     ['Sacred vocabulary (Amrit, Vishaghna, Rasayana, Shivambhu)', 'scattered', '"urine is called Vishagna or killer of all poisons" Akshay Chopra'],
                   ].map(([sub, count, example], i) => (
@@ -247,7 +269,8 @@ export default function GomutraPaperPage() {
               </table>
             </div>
 
-            {videoEmbed('https://youtu.be/YrOPq35xKoU?t=67', "Image 3: Dr. Rupali Jain talking about 'Mutravarg' (link to YouTube video)")}
+            {/* IMAGE 3 - Dr. Rupali Jain */}
+            {linkedImage('/images/go-3.png', "Dr. Rupali Jain talking about Mutravarg", "Image 3: Dr. Rupali Jain talking about 'Mutravarg'", 'https://youtu.be/YrOPq35xKoU?t=67')}
 
             <p style={bodyText}>A reasonable pushback at this point is: <em>if the Vedas actually do mention cow urine, how is invoking them a misrepresentation?</em> They do mention it. But two separate things are going wrong, and they&#8217;re worth keeping apart. First, the medical part: the Vedas aren&#8217;t a scientific text, they&#8217;re religious literature, where medicine wasn&#8217;t separated from ritual. Citing a Vedic verse as clinical proof would be an error. The Vedas existing isn&#8217;t the misinformation, treating them as a peer-reviewed source is. Second, the historical part, which this paper cares about more: even if you grant the medical claim, what these videos do with the citations is a selective rewriting of Indian history. The 2,000-year intervening medical tradition gets collapsed into a flat &#8220;ancient times,&#8221; when Charaka and Sushruta Samhita&#8217;s were written centuries after the Vedas and routinely disagreed with earlier sources. There are two misrepresentations stacked on each other: one about what the text says, one about what Indian history was.</p>
             <p style={bodyText}>What&#8217;s interesting isn&#8217;t just that these speakers reach for antiquity, but how they do it. The vocabulary slides quietly between registers. Rakesh Agarwal, for example, says, &#8220;in the Vedas, it is given the status of Amrit, Amrit means which does not let die, which is a life-saving drug.&#8221; The sentence quietly slides from myth to pharmacology. Amrit is the drink of the gods but by the end of the line it has become &#8220;a life-saving drug.&#8221; There are different frames stacked in the video: Vedic theology, his IIT credentials, and modern medicine. None of them are made to check each other, which is what makes the move work. The same thing happens with sacred terminology more broadly: words like Vishaghna (&#8220;killer of all poisons&#8221;), Rasayana, Sanjeevani, Shivambhu show up scattered across promoter videos, and each one quietly lifts cow urine out of the medical register and into a metaphysical one. You can&#8217;t run a clinical trial on an offering to the gods.</p>
@@ -271,10 +294,10 @@ export default function GomutraPaperPage() {
                 <tbody>
                   {[
                     ['American patent as proof', '"America has granted it a patent" Baba Ramdev, Sudhir Chaudhary', 'The word "patent," with no detail on scope'],
-                    ['Big-name institutions', '"NIH… AYUSH… International Journal…" Lotus Pregnancy Care', 'Stacking acronyms'],
+                    ['Big-name institutions', '"NIHâ€¦ AYUSHâ€¦ International Journalâ€¦" Lotus Pregnancy Care', 'Stacking acronyms'],
                     ['WHO certification', '"certified by the World Health Organization" B.K. Sahu', 'The brand of WHO'],
                     ['Export markets as judges', '"Singapore, Germany, America, Britain, UAE are buying" Sushant Sinha', 'Foreign markets = validation'],
-                    ['Western media as quality stamp', '"Washington Post, New York Times, Guardian have praised…" Sudhir Chaudhary', 'Newspaper names as authority'],
+                    ['Western media as quality stamp', '"Washington Post, New York Times, Guardian have praisedâ€¦" Sudhir Chaudhary', 'Newspaper names as authority'],
                   ].map(([sub, example, work], i) => (
                     <tr key={i}>
                       <td style={tdStyle(i)}>{sub}</td>
@@ -286,7 +309,8 @@ export default function GomutraPaperPage() {
               </table>
             </div>
 
-            {videoEmbed('https://www.youtube.com/shorts/8nDDBoWTo8k?feature=share', 'Image 4: Sudhir Chaudhary "Do those who insult gomutra know this?" (link to YouTube video)')}
+            {/* IMAGE 4 - Sudhir Chaudhary */}
+            {linkedImage('/images/go-4.png', 'Sudhir Chaudhary "Do those who insult gomutra know this?"', 'Image 4: Sudhir Chaudhary "Do those who insult gomutra know this?"', 'https://www.youtube.com/shorts/8nDDBoWTo8k?feature=share')}
 
             <p style={bodyText}>It&#8217;s worth being precise about what I am and am not claiming here. I&#8217;m not saying the West has to show up as a coloniser, or that validation from the West is inherently bad. People can cite whoever they want. What I&#8217;m flagging is two narrower things. First, the rhetorical function, phrases like &#8220;America has granted a patent&#8221; are being used to end the conversation rather than open one. None of the speakers describe what the patent actually covers, whether any medicine was approved, or what its legal scope is. There are 4 widely cited patents where cow urine, specifically gomutra or its distillate, is the core active ingredient or focus of the invention that have been granted by US courts. They are as follows: <a href="https://patents.google.com/patent/US6410059B1/en" target="_blank" rel="noopener noreferrer" style={linkStyle}>US Patent No. 6,410,059 (2002)</a>, <a href="https://patents.google.com/patent/US6896907B2/en" target="_blank" rel="noopener noreferrer" style={linkStyle}>US Patent No. 6,896,907 (2005)</a>, <a href="https://patents.google.com/patent/US7235262B2/en" target="_blank" rel="noopener noreferrer" style={linkStyle}>US Patent No. 7,235,262 (2007)</a>, and <a href="https://patents.google.com/patent/US7297659B2/en" target="_blank" rel="noopener noreferrer" style={linkStyle}>US Patent No. 7,297,659 (2007)</a>. The patents are presented as proof of medical efficacy whereas the patents are actually simply a legal test of novelty. The brand of &#8220;America&#8221; does all the work. That&#8217;s worth flagging regardless of whether you think the West is a hero or a villain in the story.</p>
             <p style={bodyText}>Second, the historiographical observation is that in most other Indian discourse (cow protection politics, Hindutva commentary, anti-secularist talk), the West is the destroyer of Indian local knowledge. Here, suddenly, it isn&#8217;t and that inversion is the finding, not a complaint.</p>
@@ -314,7 +338,10 @@ export default function GomutraPaperPage() {
 
             <h3 style={subHeading}>4.3 Ayurveda in Indian Science Textbooks</h3>
             <p style={bodyText}>What happens on YouTube might seem like a self-contained problem but it is not. Under India&#8217;s National Education Policy (NEP) 2020, the current government has introduced Ayurveda into NCERT science textbooks for Classes 6 to 8. The Class 6 <em>Curiosity</em> textbook now references the <em>Ashtanga Hridaya Sutra Sthana</em>, the very same ancient text that Dr. Rupali Jain cites on YouTube, with 726,000 views, to authorise the medical properties of cow urine. The same texts that lives on wellness channels now lives in the national curriculum.</p>
-            <p style={bodyText}><a href="https://ncert.nic.in/textbook/pdf/fecu106.pdf" target="_blank" rel="noopener noreferrer" style={linkStyle}>Image 5: Ashtanga Hridaya Sutra Sthana referenced in the NCERT Class 6 Curiosity textbook in the chapter &#8216;Materials Around Us&#8217; (link to NCERT &#8216;Materials Around Us&#8217; chapter here)</a></p>
+
+            {/* IMAGE 5 - NCERT textbook */}
+            {linkedImagePDF('/images/go-5.png', 'Ashtanga Hridaya Sutra Sthana referenced in the NCERT Class 6 Curiosity textbook', "Image 5: Ashtanga Hridaya Sutra Sthana referenced in the NCERT Class 6 Curiosity textbook in the chapter 'Materials Around Us'", 'https://ncert.nic.in/textbook/pdf/fecu106.pdf')}
+
             <p style={bodyText}>The Class 8 textbook includes a chapter titled &#8220;Ayurveda: Balance of Body, Mind, and Environment,&#8221; covering daily routines and seasonal habits drawn from traditional practice. The University Grants Commission (UGC) is simultaneously developing course modules to bring Ayurvedic principles into higher education. This is a systematic, institutional movement.</p>
             <p style={bodyText}>The connection back to this study&#8217;s findings is not incidental. The gomutra videos in our dataset operate by treating ancient texts as given authority &#8212; &#8220;the Charaka Samhita says so&#8221; is used as a conversation-ender, not to invite inquiry. When that same logic enters the science classroom through state-approved textbooks, it is no longer just one influencer among people, it becomes the curriculum. The movement from imagination of history to imagination of science to imagination of medicine is no longer just a pattern in online content.</p>
             <p style={bodyText}>The long-run implication is serious. If what counts as scientific knowledge is shaped by what confirms India&#8217;s ancient greatness, and if that idea becomes standard in classrooms and eventually in medical training, then the medical establishment itself (who gets trained, what gets funded, what treatments get recommended) will increasingly reflect a vision of science defined by history rather than by evidence.</p>
@@ -340,12 +367,8 @@ export default function GomutraPaperPage() {
 
       <style>{`
         @media (max-width: 768px) {
-          table {
-            font-size: 0.88rem !important;
-          }
-          table th, table td {
-            padding: 0.6rem 0.8rem !important;
-          }
+          table { font-size: 0.88rem !important; }
+          table th, table td { padding: 0.6rem 0.8rem !important; }
         }
       `}</style>
     </>
