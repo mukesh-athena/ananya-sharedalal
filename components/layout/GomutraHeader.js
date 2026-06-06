@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/gomutra/themes', label: 'Themes' },
   { href: '/gomutra/videos', label: 'Videos' },
   { href: '/gomutra/mentions', label: 'Mentions' },
+  { href: '/gomutra/paper', label: 'Paper' },
 ]
 
 export default function GomutraHeader() {
@@ -207,3 +208,4 @@ export default function GomutraHeader() {
     </header>
   )
 }
+

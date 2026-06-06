@@ -18,6 +18,7 @@ const sections = [
   { href: '/gomutra/themes', label: 'Themes', title: 'Recurring Themes', description: 'Five patterns that surface across the dataset: from Vedic antiquity as the only valid history, to the West as a surprising validator.' },
   { href: '/gomutra/videos', label: 'Videos', title: 'Video Commentary', description: 'Curated clips from the corpus \u2014 with close readings of what each reveals about how a singular (flattened) historical narrative is used to influence.' },
   { href: '/gomutra/mentions', label: 'Mentions', title: 'Talks & Mentions', description: 'Where this research has been presented and discussed \u2014 from Microsoft Research to Heidelberg.' },
+  { href: '/gomutra/paper', label: 'Paper', title: 'The Full Paper', description: 'The complete research paper \u2014 methodology, findings, and implications of how YouTube\u2019s gomutra discourse is quietly rewriting Indian history.' },
 ]
 
 export default function GomutraHomePage() {
@@ -45,7 +46,7 @@ export default function GomutraHomePage() {
         <section style={{ backgroundColor: 'var(--parchment)', padding: '6rem 2rem' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <p style={{ fontFamily: 'Crimson Text, serif', fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--turmeric)', marginBottom: '1rem', textAlign: 'center' }}>Explore the Archive</p>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.2, fontWeight: 500, color: 'var(--inkbrown)', textAlign: 'center', marginBottom: '4rem' }}>Four ways to enter the corpus</h2>
+            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.2, fontWeight: 500, color: 'var(--inkbrown)', textAlign: 'center', marginBottom: '4rem' }}>Five ways to enter the corpus</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
               {sections.map((s) => (
                 <Link key={s.href} href={s.href} style={{ display: 'block', padding: '2.5rem 2rem', backgroundColor: 'var(--offwhite)', border: '1px solid #E8DFD0', borderRadius: '4px', textDecoration: 'none', color: 'inherit', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}>
